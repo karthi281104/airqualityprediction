@@ -1,118 +1,36 @@
 /* style.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
+body {
+    background-color: #ffffff;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #ffffff;
-    color: #333;
+    padding-top: 80px; /* for navbar space */
   }
   
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    z-index: 1000;
-    animation: slideDown 0.6s ease-in-out;
+  .navbar-brand span {
+    font-size: 1.5rem;
   }
   
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0052cc;
-  }
-
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+  .hero {
+    height: 90vh;
+    background: linear-gradient(to right, #ffffff, #f1f5ff);
+    animation: fadeIn 1s ease-in-out;
   }
   
-  .nav-links a {
-    text-decoration: none;
-    color: #0052cc;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #ff5722;
-  }
-  
-  .hero-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 100px;
-  }
-  
-  .hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .btn {
-    background-color: #0052cc;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #003d99;
-  }
-  
-  /* Animations */
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  .fade-in {
+  .animate-fadein {
     opacity: 0;
-    animation: fadeIn ease 1s forwards;
+    animation: fadeInUp 1s ease forwards;
   }
   
-  .fade-in.delay-1 {
+  .animate-fadein.delay-1 {
     animation-delay: 0.5s;
   }
-  
-  .fade-in.delay-2 {
+  .animate-fadein.delay-2 {
     animation-delay: 1s;
   }
   
-  @keyframes fadeIn {
+  @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -120,19 +38,143 @@
     }
   }
   
-  @media (max-width: 768px) {
-    .nav-links {
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      background: #fff;
-      width: 100%;
-      display: none;
-    }
-  
-    .navbar.active .nav-links {
-      display: flex;
-    }
+  /* Optional hover effect */
+  .nav-link:hover {
+    color: #ff5722 !important;
   }
+  /* Intro Section */
+.intro-section {
+  padding: 100px 20px 80px;
+  background-color: #f8f9ff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.intro-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.intro-subtext {
+  font-size: 1.125rem;
+  color: #555;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.quality-btn img {
+  height: 20px;
+  width: 20px;
+}
+
+/* Dots Background Animation */
+.dots-bg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  z-index: -1;
+  animation: moveDots 20s linear infinite;
+}
+
+@keyframes moveDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero {
+    padding: 120px 0 60px;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Dots Background */
+  .dots-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+    background-size: 25px 25px;
+    opacity: 0.3;
+    z-index: -1;
+    animation: moveDots 30s linear infinite;
+  }
+  
+  @keyframes moveDots {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+  }
+  
+  /* Floating Image */
+  .floating-img {
+    width: 120px;
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    border: 5px solid white;
+    animation: float footer {
+        background-color: #1f1f1f;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+      footer .row {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      footer .row > div {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 20px;
+      }
+      4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Stats */
+  .stats h2 {
+    font-size: 2rem;
+    color: #111;
+  }
+  /* Dots Background reused */
+.dots-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+    background-size: 25px 25px;
+    opacity: 0.2;
+    z-index: -1;
+    animation: moveDots 40s linear infinite;
+  }
+  
+  /* Reuse from earlier animation */
+  @keyframes moveDots {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+  }
+  section img {
+    transition: transform 0.3s ease;
+  }
+  section img:hover {
+    transform: scale(1.1);
+  }
+  
   
